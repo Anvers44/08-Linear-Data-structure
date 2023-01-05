@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    let arr1=[3,1,7,9]
+    let arr2=[2,4,1,9,3]
+
+    //*****Problem 1*****
+    function distinct1 (arr1,arr2){
+        let diff1 = arr1.filter(val => !arr2.includes(val))
+        let diff2 = arr2.filter(val => !arr1.includes(val))
+        let diffFinale = diff1.concat(diff2)
+
+        const reducer = (accumulator, curr) => accumulator + curr;
+        console.log("somme= "+diffFinale.reduce(reducer));
+        return diffFinale
+
+    }
+
+    function distinct2(arr1, arr2) {
+        let sum = 0;
+        let elementCount = {};
+        for (let i = 0; i < arr1.length; i++) {
+            elementCount[arr1[i]] = (elementCount[arr1[i]] || 0) + 1;
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            elementCount[arr2[i]] = (elementCount[arr2[i]] || 0) + 1;
+        }
+        for (let element in elementCount) {
+            if (elementCount[element] === 1) {
+                sum += element;
+
+            }
+            console.log("somme = "+sum)
+        }
+        return sum;
+    }
+
+//*****Problem 2*****
+
+    function findSumOverlap(arr1, arr2) {
+        let sum = 0;
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr2.includes(set1[i])) {
+                sum += arr1[i];
+            }
+        }
+        return sum;
+    }
+
+
+        function findSumOverlap(arr1, arr2) {
+        let sum = 0;
+        let elementCount = {};
+        for (let i = 0; i < arr1.length; i++) {
+            elementCount[arr1[i]] = (elementCount[arr1[i]] || 0) + 1;
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            elementCount[arr2[i]] = (elementCount[arr2[i]] || 0) + 1;
+        }
+        for (let element in elementCount) {
+            if (elementCount[element] > 1) {
+                sum += element;
+            }
+        }
+        return sum;
+    }
+
+
+
+  </script>
+</body>
+</html>
